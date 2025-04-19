@@ -6,6 +6,7 @@ export type RootStackParamList = {
   OpportunitiesScreen: undefined
   OpportunityDetails: { opportunityId: string }
   VolunteerForm: { opportunityId: string }
+  AboutScreen: undefined
 }
 
 export type TabParamList = {

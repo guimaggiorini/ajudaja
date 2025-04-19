@@ -1,25 +1,25 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createStackNavigator } from '@react-navigation/stack'
 import { Ionicons } from '@expo/vector-icons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 import { StatusBar } from 'expo-status-bar'
-import { Image, View, Text } from 'react-native'
+import React from 'react'
+import { Image, Text, View } from 'react-native'
 
+import { TouchableOpacity } from 'react-native'
 import { RootStackParamList, TabParamList } from './navigation/types'
-import HomeScreen from './screens/Home'
-import OpportunityDetailsScreen from './screens/OpportunityDetails'
 import AboutScreen from './screens/About'
+import HomeScreen from './screens/Home'
 import OpportunitiesScreen from './screens/Opportunities'
+import OpportunityDetailsScreen from './screens/OpportunityDetails'
 import VolunteerFormScreen from './screens/VolunteerForm'
 import { ThemeProvider, useTheme } from './styles/ThemeContext'
-import { TouchableOpacity } from 'react-native'
 
 const Tab = createBottomTabNavigator<TabParamList>()
 const Stack = createStackNavigator<RootStackParamList>()
 
 function HomeStack() {
-  const { colors, theme, toggleTheme } = useTheme()
+  const { colors } = useTheme()
   return (
     <Stack.Navigator
       screenOptions={{
@@ -42,38 +42,30 @@ function HomeStack() {
               AjudaJá
             </Text>
           </View>
-        ),
-        headerRight: () => (
-          <TouchableOpacity onPress={toggleTheme} style={{ marginRight: 16 }}>
-            <Ionicons
-              name={theme === 'light' ? 'moon' : 'sunny'}
-              size={24}
-              color={theme === 'light' ? colors.primary : colors.primary}
-            />
-          </TouchableOpacity>
-        ),
+        )
       }}
     >
-      <Stack.Screen 
-        name="HomeScreen" 
-        component={HomeScreen} 
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ title: 'Home' }}
       />
-      <Stack.Screen 
-        name="OpportunityDetails" 
-        component={OpportunityDetailsScreen} 
-        options={{ title: 'Detalhes' }} 
+      <Stack.Screen
+        name="OpportunityDetails"
+        component={OpportunityDetailsScreen}
+        options={{ title: 'Detalhes' }}
       />
-      <Stack.Screen 
-        name="VolunteerForm" 
-        component={VolunteerFormScreen} 
-        options={{ title: 'Cadastro' }} 
+      <Stack.Screen
+        name="VolunteerForm"
+        component={VolunteerFormScreen}
+        options={{ title: 'Cadastro' }}
       />
     </Stack.Navigator>
   )
 }
 
 function OpportunitiesStack() {
-  const { colors, theme, toggleTheme } = useTheme()
+  const { colors } = useTheme()
   return (
     <Stack.Navigator
       screenOptions={{
@@ -85,6 +77,47 @@ function OpportunitiesStack() {
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+      }}
+    >
+      <Stack.Screen
+        name="OpportunitiesScreen"
+        component={OpportunitiesScreen}
+        options={{ title: 'Oportunidades' }}
+      />
+      <Stack.Screen
+        name="OpportunityDetails"
+        component={OpportunityDetailsScreen}
+        options={{ title: 'Detalhes' }}
+      />
+      <Stack.Screen
+        name="VolunteerForm"
+        component={VolunteerFormScreen}
+        options={{ title: 'Cadastro' }}
+      />
+    </Stack.Navigator>
+  )
+}
+
+function AboutStack() {
+  const { colors, theme, toggleTheme } = useTheme()
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.background,
+          borderWidth: 0
+        },
+        headerTintColor: colors.secondary,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+        headerTitle: () => (
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ color: colors.secondary, fontWeight: 'bold', fontSize: 20 }}>
+              Sobre
+            </Text>
+          </View>
+        ),
         headerRight: () => (
           <TouchableOpacity onPress={toggleTheme} style={{ marginRight: 16 }}>
             <Ionicons
@@ -96,20 +129,10 @@ function OpportunitiesStack() {
         ),
       }}
     >
-      <Stack.Screen 
-        name="OpportunitiesScreen" 
-        component={OpportunitiesScreen} 
-        options={{ title: 'Oportunidades' }} 
-      />
-      <Stack.Screen 
-        name="OpportunityDetails" 
-        component={OpportunityDetailsScreen} 
-        options={{ title: 'Detalhes' }} 
-      />
-      <Stack.Screen 
-        name="VolunteerForm" 
-        component={VolunteerFormScreen} 
-        options={{ title: 'Cadastro' }} 
+      <Stack.Screen
+        name="AboutScreen"
+        component={AboutScreen}
+        options={{ title: 'Sobre' }}
       />
     </Stack.Navigator>
   )
@@ -148,7 +171,7 @@ function AppContent() {
       >
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Oportunidades" component={OpportunitiesStack} />
-        <Tab.Screen name="Sobre" component={AboutScreen} />
+        <Tab.Screen name="Sobre" component={AboutStack} />
       </Tab.Navigator>
     </NavigationContainer>
   )

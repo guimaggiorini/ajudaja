@@ -60,10 +60,6 @@ const AboutScreen: React.FC = () => {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Sobre o AjudaJá</Text>
-      </View>
-      
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Nossa Missão</Text>
         <Text style={styles.text}>
@@ -143,36 +139,6 @@ const AboutScreen: React.FC = () => {
           </View>
         ))}
       </View>
-      
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Contato</Text>
-        <Text style={styles.text}>
-          Tem alguma dúvida, sugestão ou feedback? Entre em contato conosco:
-        </Text>
-        
-        <View style={styles.contactItem}>
-          <Ionicons name="mail-outline" size={20} color={colors.secondary} />
-          <Text style={styles.contactText}>contato@ajudaja.com.br</Text>
-        </View>
-        
-        <View style={styles.contactItem}>
-          <Ionicons name="call-outline" size={20} color={colors.secondary} />
-          <Text style={styles.contactText}>(11) 4002-8922</Text>
-        </View>
-        
-        <TouchableOpacity 
-          style={styles.websiteButton}
-          onPress={() => handleSocialPress('https://www.ajudaja.com.br')}
-        >
-          <Ionicons name="globe-outline" size={20} color={colors.white} />
-          <Text style={styles.websiteButtonText}>Visite nosso site</Text>
-        </TouchableOpacity>
-      </View>
-      
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>© 2023 AjudaJá - Todos os direitos reservados</Text>
-        <Text style={styles.footerText}>Versão 1.0.0</Text>
-      </View>
     </ScrollView>
   )
 }
@@ -197,7 +163,7 @@ const getStyles = (colors: AppColors) => StyleSheet.create({
   },
   section: {
     padding: 20,
-    marginBottom: 10,
+    marginBottom: 4,
   },
   sectionTitle: {
     fontSize: 20,
@@ -252,7 +218,7 @@ const getStyles = (colors: AppColors) => StyleSheet.create({
   },
   developerImage: {
     width: 100,
-    height: 150,
+    height: 170,
   },
   developerInfo: {
     flex: 1,
@@ -280,43 +246,7 @@ const getStyles = (colors: AppColors) => StyleSheet.create({
   },
   socialButton: {
     marginRight: 16,
-  },
-  contactItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  contactText: {
-    fontSize: 16,
-    color: colors.secondary,
-    marginLeft: 8,
-  },
-  websiteButton: {
-    backgroundColor: colors.secondary,
-    borderRadius: 8,
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 8,
-  },
-  websiteButtonText: {
-    color: colors.white,
-    fontSize: 16,
-    fontWeight: '500',
-    marginLeft: 8,
-  },
-  footer: {
-    padding: 20,
-    backgroundColor: colors.backgroundLight,
-    alignItems: 'center',
-  },
-  footerText: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    marginBottom: 4,
-  },
+  }
 })
 
 export default AboutScreen
