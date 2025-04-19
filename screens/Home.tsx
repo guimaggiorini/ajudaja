@@ -110,7 +110,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 
       <View style={styles.opportunitiesSection}>
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Oportunidades em Destaque</Text>
+          <Text style={styles.opportunitiesTitle}>Oportunidades em Destaque</Text>
           <TouchableOpacity 
             style={styles.viewAllButton}
             onPress={() => tabNavigation.navigate('Oportunidades')}
@@ -225,6 +225,12 @@ const getStyles = (colors: AppColors) => StyleSheet.create({
     marginHorizontal: 16,
     marginTop: 16,
     marginBottom: 12,
+  },
+  opportunitiesTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.secondary,
+    marginBottom: 16,
   },
   statesContainer: {
     marginBottom: 16,
