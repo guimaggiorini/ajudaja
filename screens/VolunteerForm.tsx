@@ -192,6 +192,14 @@ const VolunteerFormScreen: React.FC<VolunteerFormScreenProps> = ({ route, naviga
           <Text style={styles.requiredText}>* Campos obrigatórios</Text>
           
           <TouchableOpacity
+            style={styles.cancelButton}
+            onPress={() => navigation.goBack()}
+            disabled={submitting}
+          >
+            <Text style={styles.cancelButtonText}>Cancelar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
             style={styles.submitButton}
             onPress={handleSubmit}
             disabled={submitting}
@@ -201,14 +209,6 @@ const VolunteerFormScreen: React.FC<VolunteerFormScreenProps> = ({ route, naviga
             ) : (
               <Text style={styles.submitButtonText}>Enviar Cadastro</Text>
             )}
-          </TouchableOpacity>
-          
-          <TouchableOpacity
-            style={styles.cancelButton}
-            onPress={() => navigation.goBack()}
-            disabled={submitting}
-          >
-            <Text style={styles.cancelButtonText}>Cancelar</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
