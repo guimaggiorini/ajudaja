@@ -90,28 +90,6 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
         </Text> 
       </View>
 
-      <Text style={styles.sectionTitle}>Regiões Disponíveis</Text>
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false} 
-        style={styles.statesContainer}
-        contentContainerStyle={styles.statesContent}
-      >
-        {loading ? (
-          <ActivityIndicator size="small" color={colors.primary} style={styles.smallLoader} />
-        ) : (
-          states.map((state) => (
-            <TouchableOpacity 
-              key={state.id} 
-              style={styles.stateButton}
-              onPress={() => Alert.alert('Região', `Oportunidades em ${state.nome}`)}
-            >
-              <Text style={styles.stateText}>{state.sigla}</Text>
-            </TouchableOpacity>
-          ))
-        )}
-      </ScrollView>
-
       <Text style={styles.sectionTitle}>Categorias</Text>
       <ScrollView 
         horizontal 
