@@ -240,7 +240,7 @@ const getStyles = (colors: AppColors) => StyleSheet.create({
     color: colors.textSecondary,
   },
   infoSection: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: colors.backgroundLight,
     borderRadius: 12,
