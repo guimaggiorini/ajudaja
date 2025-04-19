@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar'
+import { Image, View, Text } from 'react-native'
 
 import { RootStackParamList, TabParamList } from './navigation/types'
 import HomeScreen from './screens/Home'
@@ -30,6 +31,18 @@ function HomeStack() {
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        headerTitle: () => (
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Image
+              source={require('./assets/logo.png')}
+              style={{ width: 30, height: 30, marginRight: 8 }}
+              resizeMode="contain"
+            />
+            <Text style={{ color: colors.secondary, fontWeight: 'bold', fontSize: 20 }}>
+              AjudaJá
+            </Text>
+          </View>
+        ),
         headerRight: () => (
           <TouchableOpacity onPress={toggleTheme} style={{ marginRight: 16 }}>
             <Ionicons
@@ -44,7 +57,6 @@ function HomeStack() {
       <Stack.Screen 
         name="HomeScreen" 
         component={HomeScreen} 
-        options={{ title: 'AjudaJá' }} 
       />
       <Stack.Screen 
         name="OpportunityDetails" 
